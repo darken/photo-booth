@@ -8,6 +8,7 @@
   "dependencies": {
     "express": "3.0.6",
     "ejs": "*",
-    "css": "*"
+    "css": "*",
+    "hbs": "2.0.1"
   }
 }
