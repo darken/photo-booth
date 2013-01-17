@@ -13,13 +13,14 @@ var express = require('express')
 var app = express();
 
 app.configure(function(){
-  app.set('port', process.env.PORT || 3000);
+  app.set('domain', process.env.OPENSHIFT_INTERNAL_IP || '127.0.0.1');
+  app.set('port', process.env.OPENSHIFT_INTERNAL_PORT || 8080);
   app.set('views', __dirname + '/views');
   app.set('view engine', 'hbs');
   app.engine('html', require('hbs').__express);
   app.use(express.favicon());
   app.use(express.logger('dev'));
-  app.use(express.bodyParser());
+  app.use(express.bodyParser({uploadDir:'./tmp_uploads'}));
   app.use(express.methodOverride());
   app.use(app.router);
   app.use(express.static(path.join(__dirname, 'public')));
@@ -48,7 +49,8 @@ app.post('/upphoto', function (req, res) {
   });
 });
 
-http.createServer(app).listen(app.get('port'), function(){
+http.createServer(app).listen(app.get('port'), app.get('domain'), function(){
   console.log("Express server listening on port " + app.get('port'));
+  console.log("And ip " + app.get('domain'));
 });
  
