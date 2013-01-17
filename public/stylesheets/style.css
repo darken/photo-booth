@@ -1,0 +1,23 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+form {
+  padding: 10px;
+}
+
+.photo-grid {
+  padding: 20px 5px;
+}
+
+.photo-grid .photo-holder {
+  display: inline-block;
+  margin: 10px;
+  padding: 3px;
+  border: solid 1px #C1C1C1;
+}

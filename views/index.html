@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="codetag" username="darken">
+    <title>{{title}}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>{{title}}</h1>
+    <p>Welcome to {{title}}</p>
+    <form method="post" enctype="multipart/form-data" action="/upphoto">
+      <label for="file">Upload a photo</label>
+      <input id="file" name="newPhoto" type="file" />
+      <input type="submit" />
+    </form>
+
+    <div class="photo-grid">
+      {{#each photos}}
+        <div class="photo-holder">
+          <img src="uploads/{{this}}" alt="" />
+        </div>
+      {{/each}}
+    </div>
+  </body>
+</html>
